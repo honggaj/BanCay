@@ -1,10 +1,10 @@
 <div class="product-detail-container">
   <div class="product-image">
-    <img [src]="rootUrl + '/' + product.img" alt="{{ product.productName }}" />
+    <img [src]="rootUrl + '/' + product.img" alt="{{ product.name }}" />
   </div>
 
   <div class="product-info">
-    <h1 class="product-title">{{ product.productName }}</h1>
+    <h1 class="product-title">{{ product.name }}</h1>
     <p class="product-description">{{ product.description }}</p> <!-- Thay đổi nếu cần -->
     <p class="product-price">{{ product.priceOutput | number }} VNĐ</p>
 
@@ -13,7 +13,7 @@
       <input type="number" id="quantity" name="quantity" min="1" value="1" />
     </div>
 
-    <button class="add-to-cart-btn" (click)="addToCart()">Thêm vào giỏ hàng</button>
+    <button class="add-to-cart-btn" (click)="addToCart(product)">Thêm vào giỏ hàng</button>
 
   </div>
 </div>

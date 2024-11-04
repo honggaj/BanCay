@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductService } from '../../api/services';
-import { GetListProductSpResult } from '../../api/models';
+import { GetListProductSpResult, ProductResponse } from '../../api/models';
 import { TreeTypeMenuComponent } from '../tree-type-menu/tree-type-menu.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ApiConfiguration } from '../../api/api-configuration';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-product',
@@ -21,6 +23,11 @@ export class ProductComponent implements OnInit {
   itemsPerPage: number = 10;
   searchTerm: string = '';
   selectedCategory: string = ''; // Lưu loại cây được chọn
+  productId: number = 0; 
+  product!: ProductResponse; 
+  cartItems: any[] = JSON.parse(localStorage.getItem('cartItems') || '[]');
+ 
+  quantity: number = 1; // Khai báo số lượng
 
   constructor(
     private router: Router,
@@ -77,9 +84,36 @@ export class ProductComponent implements OnInit {
     this.router.navigate(['/xemchitiet', product.productId]); // Thay đổi product.id thành ID của sản phẩm
   }
 
-  addToCart(): void {
-    alert('Sản phẩm đã được thêm vào giỏ hàng!');
+  addToCart(product: GetListProductSpResult) {
+    const item = {
+      id: product.productId,
+      name: product.productName,
+      price: product.priceOutput,
+      quantity: this.quantity,
+      imageUrl: this.rootUrl + '/' + product.img
+    };
+  
+    const existingItem = this.cartItems.find(cartItem => cartItem.id === item.id);
+    if (existingItem) {
+      existingItem.quantity += item.quantity; // Cập nhật số lượng nếu đã có
+    } else {
+      this.cartItems.push(item); // Thêm mới nếu chưa có
+    }
+  
+    // Lưu giỏ hàng vào localStorage
+    localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
+  
+    // Sử dụng SweetAlert2 để hiển thị thông báo
+    Swal.fire({
+      title: 'Thành công!',
+      text: 'Sản phẩm đã được thêm vào giỏ hàng!',
+      icon: 'success',
+      confirmButtonText: 'OK'
+    });
   }
+  
+  
+
 
   onSearch(): void {
     if (this.searchTerm.trim() === '') {

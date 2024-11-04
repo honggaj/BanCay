@@ -9,9 +9,9 @@
     <li (click)="navigateTo('/lienhe')">LIÊN HỆ</li>
   </ul>
   <div class="right-menu">
-    <ul>
-      <li *ngIf="!isLoggedIn" (click)="navigateTo('/dangnhap')">ĐĂNG NHẬP</li>
-    </ul>
+   <a (click)="navigateTo('/dangnhap')">ĐĂNG NHẬP
+  
+    </a>
     <a (click)="navigateTo('/giohang')">
       <i class="fas fa-shopping-cart"></i>
     </a>

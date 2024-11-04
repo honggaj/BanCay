@@ -21,11 +21,11 @@
                   <img [src]="item.imageUrl" alt="{{ item.name }}" class="product-image">
               </td>
               <td>{{ item.name }}</td>
-              <td>{{ item.price }}đ</td>
+              <td>{{ formatCurrency(item.price) }}</td>
               <td>
                   <input type="number" [(ngModel)]="item.quantity" min="1" (change)="updateQuantity(item.id, item.quantity)">
               </td>
-              <td>{{ item.price * item.quantity }}đ</td>
+              <td>{{ formatCurrency(item.price * item.quantity) }}</td>
               <td>
                   <button (click)="removeItem(item.id)" class="delete-button">Xóa</button>
               </td>
@@ -34,8 +34,8 @@
   </table>
 
   <div class="cart-total" *ngIf="cartItems.length > 0">
-      <h3>Tổng cộng: {{ total }}đ</h3>
-      <button (click)="clearCart()" class="delete-button">Xóa giỏ hàng</button>
-      <button (click)="buyNow()" class="buy-button">Mua hàng</button>
+    <h3 style="margin-bottom: 10px;">Tổng cộng: {{ formatCurrency(total) }}</h3>
+    <button (click)="clearCart()" class="delete-button">Xóa giỏ hàng</button>
+    <button (click)="buyNow()" class="buy-button">Mua hàng</button>
   </div>
 </div>

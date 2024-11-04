@@ -23,21 +23,26 @@
       </tr>
     </tbody>
   </table>
-
+  <div class="discount-code">
+    <label for="discount">Mã giảm giá:</label>
+    <input type="text" id="discount" [(ngModel)]="discountCode" placeholder="Nhập mã giảm giá">
+    <button (click)="applyDiscount()" class="apply-button">Áp dụng</button>
+    <p *ngIf="discountApplied">{{ discountMessage }}</p>
+  </div>
   <div class="shipping-info">
     <h3>Thông tin giao hàng</h3>
-    <label for="name">Họ và tên:</label>
-    <input type="text" id="name" [(ngModel)]="shippingInfo.name" required>
-
-    <label for="phone">Số điện thoại:</label>
-    <input type="text" id="phone" [(ngModel)]="shippingInfo.phone" required>
-
-    <label for="address">Địa chỉ giao hàng:</label>
-    <input type="text" id="address" [(ngModel)]="shippingInfo.address" required>
+    <p>Họ và tên: {{ shippingInfo.name }}</p>
+    <p>Số điện thoại: {{ shippingInfo.phone }}</p>
+    <p>Địa chỉ: {{ shippingInfo.address }}</p>
+    <p>Lưu ý: Chỉ thanh toán khi nhận hàng</p>
   </div>
+
+ 
 
   <div class="order-total">
     <h3>Tổng cộng: {{ total }}đ</h3>
+    <p *ngIf="discountApplied">Giảm giá: {{ discountAmount }}đ</p> <!-- Hiển thị giảm giá nếu áp dụng -->
     <button (click)="submitOrder()" class="submit-button">Xác nhận đơn hàng</button>
   </div>
+  
 </div>

@@ -62,5 +62,6 @@ nav {
     color: rgb(7, 90, 63); /* Màu mặc định cho biểu tượng */
     margin-left: 20px; /* Khoảng cách giữa các biểu tượng */
     font-size: 1.5em; /* Kích thước biểu tượng */
+    cursor: pointer;
   }
   

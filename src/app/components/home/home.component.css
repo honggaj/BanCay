@@ -85,7 +85,10 @@ padding-bottom: 40px;
 
 
 .sanphamnoibat {
+  overflow: hidden;
+  width: 100%;
   padding: 10px 30px;
+  position: relative;
 }
 
 /* Sản phẩm nổi bật */
@@ -94,24 +97,44 @@ h1 {
   text-align: center;
   margin-bottom: 20px;
 }
+.sanphamnoibat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
 
 .product-list {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap; /* Cho phép sản phẩm xuống hàng */
-  margin: 0;
-  gap:10px;
+  overflow: hidden;
+  width: 1000px; /* Đảm bảo chỉ có 4 sản phẩm hiển thị */
 }
 
 .product-item {
   border: 1px solid #ddd;
   padding: 5px;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Thêm hiệu ứng chuyển động mượt */
-  width: 260px; /* Thiết lập chiều rộng cố định cho mỗi sản phẩm */
-  margin: 10px; /* Khoảng cách giữa các sản phẩm */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 250px;
   height: 380px;
- 
+  margin: 10px;
+}
+
+.nav-button {
+  padding: 10px;
+  cursor: pointer;
+  background-color: rgb(12, 95, 52); /* Màu chữ cho giá sản phẩm */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: rgb(47, 149, 96); /* Màu chữ cho giá sản phẩm */
+}
+h2{
+  text-align: center;
 }
 .description {
   font-size: 16px; /* Kích thước chữ cho mô tả tổng quát */

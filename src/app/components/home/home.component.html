@@ -33,77 +33,34 @@
   <div style="display: flex; justify-content: center; align-items: center;">
     <img src="images/icon-leaf.png" alt="Tên cây 1" style="width: 100px; height: auto; padding-top: 70px;">
   </div>
-
+  <h2>Sản nổi bật</h2>
   <div class="sanphamnoibat">
-    <h1>Sản phẩm mới</h1>
-    <p class="description">Khám phá bộ sưu tập sản phẩm mới nhất của chúng tôi, được chọn lọc kỹ càng với chất lượng tốt nhất. Đừng bỏ lỡ cơ hội sở hữu những sản phẩm tuyệt vời này!</p>
+    <button (click)="prevPage()" class="nav-button">
+      <i class="fas fa-arrow-left"></i>
+
+    </button>
+   
     <div class="product-list">
-      <div class="product-item">
-        <img src="images/cayluoiho.png" alt="Tên cây 1">
-        <h4>Cây lưỡi hổ</h4>
-        <p class="product-price">Giá: 100,000 VND</p>
-        <button class="view-btn">Xem</button>
-        <button class="add-to-cart-btn">Thêm vào giỏ</button>
-      </div>
-      <div class="product-item">
-        <img src="images/cayluoiho.png" alt="Tên cây 1">
-        <h4>Cây lưỡi hổ</h4>
-        <p class="product-price">Giá: 100,000 VND</p>
-        <button class="view-btn">Xem</button>
-        <button class="add-to-cart-btn">Thêm vào giỏ</button>
-      </div>
-      <div class="product-item">
-        <img src="images/cayluoiho.png" alt="Tên cây 1">
-        <h4>Cây lưỡi hổ</h4>
-        <p class="product-price">Giá: 100,000 VND</p>
-        <button class="view-btn">Xem</button>
-        <button class="add-to-cart-btn">Thêm vào giỏ</button>
-      </div>
-      <div class="product-item">
-        <img src="images/cayluoiho.png" alt="Tên cây 1">
-        <h4>Cây lưỡi hổ</h4>
-        <p class="product-price">Giá: 100,000 VND</p>
-        <button class="view-btn">Xem</button>
-        <button class="add-to-cart-btn">Thêm vào giỏ</button>
-      </div>
-      <div class="product-item">
-        <img src="images/cayluoiho.png" alt="Tên cây 1">
-        <h4>Cây lưỡi hổ</h4>
-        <p class="product-price">Giá: 100,000 VND</p>
-        <button class="view-btn">Xem</button>
-        <button class="add-to-cart-btn">Thêm vào giỏ</button>
-      </div>
-      <div class="product-item">
-        <img src="images/cayluoiho.png" alt="Tên cây 1">
-        <h4>Cây lưỡi hổ</h4>
-        <p class="product-price">Giá: 100,000 VND</p>
-        <button class="view-btn">Xem</button>
-        <button class="add-to-cart-btn">Thêm vào giỏ</button>
-      </div>
-      <div class="product-item">
-        <img src="images/cayluoiho.png" alt="Tên cây 1">
-        <h4>Cây lưỡi hổ</h4>
-        <p class="product-price">Giá: 100,000 VND</p>
-        <button class="view-btn">Xem</button>
-        <button class="add-to-cart-btn">Thêm vào giỏ</button>
-      </div>
-      <div class="product-item">
-        <img src="images/cayluoiho.png" alt="Tên cây 1">
-        <h4>Cây lưỡi hổ</h4>
-        <p class="product-price">Giá: 100,000 VND</p>
-        <button class="view-btn">Xem</button>
-        <button class="add-to-cart-btn">Thêm vào giỏ</button>
-      </div>
-      <div class="product-item">
-        <img src="images/cayluoiho.png" alt="Tên cây 1">
-        <h4>Cây lưỡi hổ</h4>
-        <p class="product-price">Giá: 100,000 VND</p>
-        <button class="view-btn">Xem</button>
-        <button class="add-to-cart-btn">Thêm vào giỏ</button>
-      </div>
-      <!-- Các sản phẩm khác tương tự -->
+      <ng-container *ngIf="filteredProducts && filteredProducts.length > 0">
+        <div class="product-item" *ngFor="let product of paginatedProducts()">
+          <img [src]="rootUrl + '/' + product.img" alt="{{ product.productName }}" />
+          <h4>{{ product.productName }}</h4>
+          <p class="product-price">{{ product.priceOutput | number }} VNĐ</p>
+          <div class="button-container">
+            <button (click)="addToCart(product)">Thêm vào giỏ</button>
+            <button (click)="viewDetail(product)">Xem</button>
+          </div>
+        </div>
+      </ng-container>
     </div>
+    
+    <button (click)="nextPage()" class="nav-button">
+      <i class="fas fa-arrow-right"></i>
+
+    </button>
   </div>
+  
+  
 
 
   <!-- Thông tin dịch vụ -->

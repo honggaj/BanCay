@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -10,35 +10,34 @@ import { Router } from '@angular/router';
   templateUrl: './order.component.html',
   styleUrls: ['./order.component.css']
 })
-export class OrderComponent {
-  cartItems: any[] = [
-    {
-      name: 'Cây ngọc vân',
-      price: 30000,
-      quantity: 2,
-      imageUrl: 'images/ngocvan.png' // Đường dẫn đến hình ảnh giả
-    },
-    {
-      name: 'Cây trúc bách hợp',
-      price: 50000,
-      quantity: 1,
-      imageUrl: 'images/trucbachhop.png' // Đường dẫn đến hình ảnh giả
-    },
-    {
-      name: 'Cây lưỡi hổ',
-      price: 120000,
-      quantity: 3,
-      imageUrl: 'images/cayluoiho.png' // Đường dẫn đến hình ảnh giả
-    }
-  ];
+export class OrderComponent implements OnInit {
+  cartItems: any[] = [];
   shippingInfo = { name: '', phone: '', address: '' };
+  discountCode: string = '';
+  discountAmount: number = 0; // Số tiền giảm giá
+  discountApplied: boolean = false; // Kiểm tra xem mã giảm giá đã được áp dụng hay chưa
+  discountMessage: string = ''; // Thông báo về mã giảm giá
 
-  constructor(private router: Router) {
-    // Không cần kiểm tra navigation nếu bạn đang sử dụng dữ liệu giả
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    const navigation = this.router.getCurrentNavigation();
+    const state = navigation?.extras.state as { cartItems: any[] };
+    if (state?.cartItems) {
+      this.cartItems = state.cartItems;
+    } else {
+      this.cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
+    }
+
+    this.shippingInfo.name = localStorage.getItem('fullname') || '';
+    this.shippingInfo.phone = localStorage.getItem('phone') || '';
+    this.shippingInfo.address = localStorage.getItem('address') || '';
   }
 
   get total() {
-    return this.cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    const subtotal = this.cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    const finalTotal = subtotal - this.discountAmount;
+    return finalTotal < 0 ? 0 : finalTotal; // Đảm bảo không có tổng âm
   }
 
   submitOrder() {
@@ -46,5 +45,20 @@ export class OrderComponent {
       items: this.cartItems,
       shippingInfo: this.shippingInfo
     });
+    localStorage.removeItem('cartItems');
+    this.router.navigate(['/success']);
+  }
+
+  applyDiscount() {
+    // Kiểm tra mã giảm giá và áp dụng nếu hợp lệ
+    if (this.discountCode === 'DISCOUNT10') {
+      this.discountAmount = 10000; // Giả sử mã giảm giá là 10.000đ
+      this.discountApplied = true;
+      this.discountMessage = 'Mã giảm giá đã được áp dụng!';
+    } else {
+      this.discountApplied = false;
+      this.discountMessage = 'Mã giảm giá không hợp lệ!';
+      this.discountAmount = 0; // Đặt lại giảm giá nếu không hợp lệ
+    }
   }
 }
