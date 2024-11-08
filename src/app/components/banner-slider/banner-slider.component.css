@@ -3,7 +3,7 @@
   display: flex; /* Use flexbox for layout */
   align-items: center; /* Center items vertically */
   margin: 0;
-  padding-bottom: 40px;
+ background-color: white;
 
 }
 

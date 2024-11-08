@@ -1,20 +1,35 @@
+<img class="anhkhuvuon" src="images/gt1.png">
 <div class="trang-chu">
-
+  <div class="falling-leaves-container">
+    <!-- Tạo nhiều icon hoặc hình ảnh lá cây -->
+    <i class="leaf fa fa-leaf"></i>
+    <i class="leaf fa fa-leaf"></i>
+    <i class="leaf fa fa-leaf"></i>
+    <i class="leaf fa fa-leaf"></i>
+    <i class="leaf fa fa-leaf"></i>
+    <i class="leaf fa fa-leaf"></i>
+    <i class="leaf fa fa-leaf"></i>
+    <i class="leaf fa fa-leaf"></i>
+    <!-- Có thể thêm nhiều lá cây hơn nếu cần -->
+  </div>
   <!-- Banner Section -->
-  <app-banner-slider></app-banner-slider>
-  
-  
+  <app-banner-slider>
+    
+  </app-banner-slider>
+
+
   <div class="chat-icon">
     <i class="fas fa-comments"></i> <!-- Biểu tượng chat -->
-</div>
+  </div>
 
-<div class="image-list">
-  <img class="image" src="images/anh2.png">
-  <img class="image"src="images/anh3.png">
-  <img class="image"src="images/anh4.png">
-</div>
+  <div class="image-list">
+    <img class="image" src="images/anh2.png">
+    <img class="image" src="images/anh3.png">
+    <img class="image" src="images/anh4.png">
+  </div>
 
   <div class="gioithieu">
+
     <div class="text-gioithieu">
       <p><i class="fas fa-leaf"></i> Cây cảnh giúp làm sạch không khí và tạo không gian xanh.</p>
       <p><i class="fas fa-leaf"></i> Chăm sóc cây cảnh giúp giảm căng thẳng và tăng cường sức khỏe tinh thần.</p>
@@ -25,21 +40,23 @@
     </div>
     <div class="text-gioithieu">
       <p><i class="fas fa-water"></i> Nhiều loại cây cảnh có khả năng thanh lọc các chất độc hại trong không khí.</p>
-      <p><i class="fas fa-hand-holding-heart"></i> Chọn cây cảnh phù hợp có thể mang lại tài lộc và phong thủy tốt cho gia chủ.</p>
+      <p><i class="fas fa-hand-holding-heart"></i> Chọn cây cảnh phù hợp có thể mang lại tài lộc và phong thủy tốt cho
+        gia chủ.</p>
       <p><i class="fas fa-sun"></i> Cây cảnh cần ánh sáng, nước và phân bón phù hợp để phát triển tốt.</p>
     </div>
   </div>
 
+
+ <div class="ne">
   <div style="display: flex; justify-content: center; align-items: center;">
     <img src="images/icon-leaf.png" alt="Tên cây 1" style="width: 100px; height: auto; padding-top: 70px;">
   </div>
-  <h2>Sản nổi bật</h2>
+  <h2>Sản phẩm nổi bật</h2>
+ </div>
   <div class="sanphamnoibat">
     <button (click)="prevPage()" class="nav-button">
       <i class="fas fa-arrow-left"></i>
-
     </button>
-   
     <div class="product-list">
       <ng-container *ngIf="filteredProducts && filteredProducts.length > 0">
         <div class="product-item" *ngFor="let product of paginatedProducts()">
@@ -53,51 +70,43 @@
         </div>
       </ng-container>
     </div>
-    
+
     <button (click)="nextPage()" class="nav-button">
       <i class="fas fa-arrow-right"></i>
 
     </button>
   </div>
-  
-  
-
 
   <!-- Thông tin dịch vụ -->
   <div class="dichvu-list">
     <div class="dichvu-item">
-        <h3><i class="fas fa-truck"></i> Miễn phí vận chuyển</h3>
-        <p>Đơn hàng trên 200 đô la</p>
+      <h3><i class="fas fa-truck"></i> Miễn phí vận chuyển</h3>
+      <p>Đơn hàng trên 200 đô la</p>
     </div>
     <div class="dichvu-item">
-        <h3><i class="fas fa-lock"></i> Thanh toán an toàn</h3>
-        <p>Thanh toán 100% an toàn</p>
+      <h3><i class="fas fa-lock"></i> Thanh toán an toàn</h3>
+      <p>Thanh toán 100% an toàn</p>
     </div>
     <div class="dichvu-item">
-        <h3><i class="fas fa-gift"></i> Giấy chứng nhận quà tặng</h3>
-        <p>Mua ngay từ 500 đến 1000 đô la</p>
+      <h3><i class="fas fa-gift"></i> Giấy chứng nhận quà tặng</h3>
+      <p>Mua ngay từ 500 đến 1000 đô la</p>
     </div>
     <div class="dichvu-item">
-        <h3><i class="fas fa-headset"></i> Hỗ trợ 24/7</h3>
-        <p>Chúng tôi luôn sẵn sàng giúp bạn!</p>
+      <h3><i class="fas fa-headset"></i> Hỗ trợ 24/7</h3>
+      <p>Chúng tôi luôn sẵn sàng giúp bạn!</p>
     </div>
   </div>
 
-  
+
   <div class="banner-sale">
     <img src="images/luonsong.png" alt="Sale Banner" class="banner-image">
     <div class="floating-image-container">
-        <img src="images/luonsongne.png" alt="Sale Badge" class="floating-image">
-        <span class="floating-text">Săn sale ngay!!</span>
+      <img src="images/luonsongne.png" alt="Sale Badge" class="floating-image">
+      <span class="floating-text">Săn sale ngay!!</span>
     </div>
-    
+
   </div>
 
-
-
-  
-
- 
 
   <!-- Footer -->
   <footer class="footer">

@@ -2,7 +2,8 @@
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .chat-icon {
@@ -30,8 +31,11 @@
   width: 100%;
   height: auto;
   text-align: center;
+  align-items: center;
+  z-index: 2;
+  background-color: white;
 
-padding-bottom: 40px;
+padding: 40px 0px;
 
 }
 .image-list .image{
@@ -45,7 +49,7 @@ padding-bottom: 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(135deg, rgb(202, 215, 202), rgb(73, 159, 73)); /* Gradient từ xanh nhạt đến xanh đậm hơn */
+  background:transparent;
   margin-top: 0px;
 }
 
@@ -83,30 +87,28 @@ padding-bottom: 40px;
 
 
 
-
-.sanphamnoibat {
-  overflow: hidden;
-  width: 100%;
-  padding: 10px 30px;
-  position: relative;
-}
-
 /* Sản phẩm nổi bật */
 h1 {
   font-size: 24px;
   text-align: center;
   margin-bottom: 20px;
+
 }
 .sanphamnoibat {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: white;
   gap: 10px;
 }
-
+.ne{
+  background-color: white;
+}
 .product-list {
   display: flex;
   overflow: hidden;
+  position:relative;
+
   width: 1000px; /* Đảm bảo chỉ có 4 sản phẩm hiển thị */
 }
 
@@ -115,8 +117,8 @@ h1 {
   padding: 5px;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 250px;
-  height: 380px;
+  width: 350px;
+  height: 500px;
   margin: 10px;
 }
 
@@ -153,8 +155,8 @@ h2{
 }
 
 .product-item img {
-  width: 200px;
-  height: 250px;
+  width: 250px;
+  height: 350px;
   margin-bottom: 10px;
 }
 
@@ -200,8 +202,7 @@ button:hover {
   background-color: #229e6a;
   margin: 0 auto;
   padding: 20px;
-  padding-top: 40px;
-  margin-top: 70px;
+ 
 }
 
 .dichvu-item {
@@ -238,13 +239,15 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  z-index: 1; /* Thêm z-index cho banner */
 }
-
+.nav-button{
+  z-index: 2;
+}
 .banner-image {
   width: 100%;
   height: 100%;
+  z-index: -2;
+
  
 }
 
@@ -342,4 +345,53 @@ button:hover {
   padding: 10px 0;
   background-color: #222;
   margin-top: 20px;
+}
+
+
+.falling-leaves-container {
+  position: fixed;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh; 
+}
+.leaf {
+  position: absolute;
+  color: #107c10; /* Màu xanh lá cây */
+  font-size: 24px;
+  opacity: 0.8;
+  animation: fall 5s linear infinite;
+}
+
+/* Keyframes cho hiệu ứng rơi */
+@keyframes fall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Điều chỉnh thời gian và vị trí của các lá */
+.leaf:nth-child(1) { left: 10%; animation-duration: 5s; }
+.leaf:nth-child(2) { left: 20%; animation-duration: 7s; }
+.leaf:nth-child(3) { left: 30%; animation-duration: 6s; }
+.leaf:nth-child(4) { left: 40%; animation-duration: 8s; }
+.leaf:nth-child(5) { left: 50%; animation-duration: 6.5s; }
+.leaf:nth-child(6) { left: 160%; animation-duration: 6s; }
+.leaf:nth-child(7) { left: 86%; animation-duration: 8s; }
+.leaf:nth-child(8) { left: 90%; animation-duration: 10.5s; }
+.anhkhuvuon{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; /* Chiều rộng toàn màn hình */
+  height: 100vh; /* Chiều cao toàn màn hình */
+  overflow: hidden; /* Đảm bảo không hiển thị tràn */
+  z-index: -2; /* Đặt phía sau nội dung khác */
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Đảm bảo ảnh bao phủ toàn màn hình mà không bị méo */
 }

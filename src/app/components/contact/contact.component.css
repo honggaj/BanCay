@@ -3,15 +3,17 @@
     margin: 0 auto;
     padding: 20px;
     display: flex;
-    position: relative;
     flex-direction: column;
     align-items: center; /* Căn giữa nội dung */
     background-color: rgb(249, 243, 243);
     height: 100vh;
+    z-index: 2;
+   
   }
  h2{
     text-align: center;
     font-size: 36px;
+    padding-top: 80px;
  }
   /* Bố cục 2 cột cho phần nội dung liên hệ */
   .contact-content {
@@ -19,13 +21,21 @@
     justify-content: space-between; /* Giữa các cột */
     gap: 20px; /* Khoảng cách giữa hai cột */
     width: 100%;
+ 
   }
   
   /* Phần cột bên trái (tiêu đề và form) */
   .contact-form-container {
     flex: 1 1 50%;
     max-width: 50%;
-    padding-left: 100px;
+   align-items: center;
+  margin-top: 50px;
+    padding: 0px 50px;
+    background: white;
+    justify-content: center;
+    border-radius: 10px;
+    z-index: 3;
+    
   }
   
   /* Phần cột bên phải (bản đồ) */
@@ -34,11 +44,14 @@
     max-width: 50%;
     display: flex;
     justify-content: center; /* Căn giữa bản đồ */
+    z-index: 3;
+
   }
   
   /* Đảm bảo form chiếm hết chiều ngang bên trong cột */
   form {
     width: 100%;
+   
   }
   
   .form-group {
@@ -53,7 +66,7 @@
     color: #333;
     margin-bottom: 5px;
     text-align: left; /* Căn trái label */
-    width: 100%; /* Chiều rộng 100% */
+    width: 80%; /* Chiều rộng 100% */
   }
   
   input, textarea {
@@ -63,7 +76,7 @@
     border-radius: 2px;
     outline: none;
     transition: border-color 0.3s ease;
-    width: 800px; /* Chiều rộng 100% */
+    width: 100%; /* Chiều rộng 100% */
   }
   
   input:focus, textarea:focus {

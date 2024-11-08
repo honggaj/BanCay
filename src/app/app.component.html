@@ -1,3 +1,19 @@
 <!-- app.component.html -->
 <app-navbar [ngClass]="{ 'hidden': isAuthPage() }"></app-navbar>
+<div [ngClass]="{ 'hidden': isAuthPage() }" class="falling-leaves-container">
+    <!-- Tạo nhiều icon hoặc hình ảnh lá cây -->
+    <i class="leaf fa fa-leaf"></i>
+    <i class="leaf fa fa-leaf"></i>
+    <i class="leaf fa fa-leaf"></i>
+    <i class="leaf fa fa-leaf"></i>
+    <i class="leaf fa fa-leaf"></i>
+    <i class="leaf fa fa-leaf"></i>
+    <i class="leaf fa fa-leaf"></i>
+    <i class="leaf fa fa-leaf"></i>
+    <i class="leaf fa fa-leaf"></i>
+    <i class="leaf fa fa-leaf"></i>
+    <i class="leaf fa fa-leaf"></i>
+    <i class="leaf fa fa-leaf"></i>
+    <!-- Có thể thêm nhiều lá cây hơn nếu cần -->
+  </div>
 <router-outlet></router-outlet>

@@ -2,6 +2,7 @@
   width: 200px;
   background-color: #ffffff; /* Màu nền menu */
   border: 3px solid #ddd; /* Đường viền */
+  position: relative;
  
   margin-left: 60px; /* Khoảng cách bên trái */
   border-radius: 1px; /* Bo tròn các góc */
@@ -11,6 +12,8 @@
   font-family: Arial, sans-serif; /* Phông chữ */
 }
 .tree-type-menu h3 {
+  padding-top: 20px;
+
   margin-bottom: 10px; /* Khoảng cách dưới tiêu đề */
 }
 

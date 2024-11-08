@@ -5,6 +5,7 @@
     background-color: #f9f9f9;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
   }
   
   h2 {
@@ -63,9 +64,9 @@
   
   
   .product-image {
-    width: 50px; /* Chiều rộng của hình ảnh */
+    width: 150px; /* Chiều rộng của hình ảnh */
     height: auto; /* Giữ tỉ lệ hình ảnh */
-    border-radius: 5px; /* Bo góc cho hình ảnh */
+    border-radius: 2px; /* Bo góc cho hình ảnh */
 }
 .buy-button {
     padding: 10px;

@@ -27,6 +27,8 @@ export const routes: Routes = [
     loadComponent: () => import('./components/product-detail/product-detail.component').then((c) => c.ProductDetailComponent)
   },
   {path:'taikhoan',component:AccountComponent},
+  {path:'danhgia/:id',
+    loadComponent: () => import('./components/review/review.component').then((c) => c.ReviewComponent ) },
  
 
   { path: '', redirectTo: '/home', pathMatch: 'full' },
