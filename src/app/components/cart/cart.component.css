@@ -31,9 +31,6 @@
     border-top: 1px solid #ddd; /* Đường viền trên cho tiêu đề */
   }
   
-  .cart-table tr:hover {
-    background-color: #f1f1f1; /* Thay đổi màu nền khi hover trên hàng */
-  }
   
   
   .cart-total {

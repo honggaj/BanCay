@@ -56,9 +56,10 @@ export class HomeComponent implements OnInit {
   }
 
   paginatedProducts(): GetListProductSpResult[] {
-    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-    return this.filteredProducts.slice(startIndex, startIndex + this.itemsPerPage);
+    const startIndex = Math.max(0, this.filteredProducts.length - this.currentPage * this.itemsPerPage);
+    return this.filteredProducts.slice(startIndex, startIndex + this.itemsPerPage).reverse();
   }
+  
 
   nextPage(): void {
     if (this.currentPage < this.totalPages) {

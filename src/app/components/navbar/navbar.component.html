@@ -1,6 +1,6 @@
 <nav>
   <div class="logo">
-    <img src="images/logolala.png" alt="Logo" />
+    <img  class="logocay"src="images/logolala.png" alt="Logo" />
   </div>
   <ul>
     <li (click)="navigateTo('/home')">TRANG CHỦ</li>
@@ -9,16 +9,19 @@
     <li (click)="navigateTo('/lienhe')">LIÊN HỆ</li>
   </ul>
   <div class="right-menu">
-   <a (click)="navigateTo('/dangnhap')">ĐĂNG NHẬP
-  
-    </a>
-    <a (click)="navigateTo('/giohang')">
+    <!-- Nút bật chế độ sáng/tối -->
+    <button (click)="toggleDarkMode()" class="theme-toggle">
+      <i [class]="isDarkMode ? 'fas fa-sun' : 'fas fa-moon'"></i>
+    </button>
+    <a (click)="navigateTo('/giohang')" class="cart-icon">
       <i class="fas fa-shopping-cart"></i>
+      <span *ngIf="cartCount > 0" class="cart-count">{{ cartCount }}</span>
     </a>
     <div class="navigation">
       <a (click)="navigateToAccount()" style="cursor: pointer;">
-        <i class="fas fa-user"></i>  <!-- Biểu tượng tài khoản -->
+        <i class="fas fa-user"></i>
       </a>
     </div>
+   
   </div>
 </nav>

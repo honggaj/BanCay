@@ -13,7 +13,6 @@ import Swal from 'sweetalert2';
 })
 export class CartComponent {
   cartItems: any[] = JSON.parse(localStorage.getItem('cartItems') || '[]'); // Lấy sản phẩm từ localStorage
-
   constructor(private router: Router) {}
 
   get total() {

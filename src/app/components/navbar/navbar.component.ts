@@ -1,19 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common'; // Import CommonModule
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
-  imports: [CommonModule] // Thêm CommonModule vào imports
+  imports: [CommonModule]
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   isLoggedIn: boolean = false;
+  cartCount: number = 0;
+  isDarkMode = false;
 
   constructor(private router: Router) {
     this.checkLoginStatus();
+  }
+
+  ngOnInit(): void {
+    this.updateCartCount();
+  }
+
+  @HostListener('window:storage', ['$event'])
+  onStorageChange(event: StorageEvent) {
+    if (event.key === 'cartItems') {
+      this.updateCartCount(); // Cập nhật lại khi `cartItems` thay đổi
+    }
   }
 
   checkLoginStatus(): void {
@@ -25,12 +38,25 @@ export class NavbarComponent {
     this.router.navigate([route]);
   }
 
-  // Sử dụng hàm navigateTo để điều hướng đến trang tài khoản
   navigateToAccount(): void {
     if (this.isLoggedIn) {
       this.router.navigate(['/taikhoan']);
     } else {
-      this.router.navigate(['/dangnhap']); // Nếu chưa đăng nhập, điều hướng đến trang đăng nhập
+      this.router.navigate(['/dangnhap']);
     }
   }
+
+  updateCartCount(): void {
+    const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
+    this.cartCount = cartItems.reduce((acc: number, item: any) => acc + item.quantity, 0);
+  }
+  toggleDarkMode() {
+    this.isDarkMode = !this.isDarkMode;
+    if (this.isDarkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+  }
+ 
 }

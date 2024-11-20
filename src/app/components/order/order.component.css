@@ -5,6 +5,7 @@
   background-color: #f9f9f9;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 h2 {
@@ -12,22 +13,30 @@ h2 {
   margin-bottom: 20px;
 }
 
-.order-table {
-  width: 100%;
-  margin-bottom: 20px;
+.cart-table {
+  width: 100%; /* Đảm bảo bảng sử dụng toàn bộ chiều rộng của .cart-container */
   border-collapse: collapse;
 }
 
-.order-table th,
-.order-table td {
-  border: none;
-  border-bottom: 1px solid #ddd;
+.cart-table th,
+.cart-table td {
+ border:none;
   padding: 10px;
-  text-align: center;
+  border-bottom: 1px solid #ddd; /* Chỉ có đường viền dưới */
+  text-align: center; /* Căn giữa nội dung trong ô */
 }
 
-.order-table th {
-  background-color: #f1f1f1;
+.cart-table th {
+  border-bottom: 1px solid #ddd; /* Chỉ có đường viền dưới */
+  border-top: 1px solid #ddd; /* Đường viền trên cho tiêu đề */
+}
+
+
+
+.cart-total {
+  margin-top: 20px;
+  text-align: right;
+  padding-bottom: 20px;
 }
 
 .product-image {

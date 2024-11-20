@@ -4,6 +4,8 @@
   padding: 0;
   overflow-x: hidden;
   overflow-y: hidden;
+  background-color: rgb(230, 253, 230);
+
 }
 
 .chat-icon {
@@ -33,7 +35,6 @@
   text-align: center;
   align-items: center;
   z-index: 2;
-  background-color: white;
 
 padding: 40px 0px;
 
@@ -44,29 +45,88 @@ padding: 40px 0px;
   margin: 0 30px;
   
 }
+.anhnguoiphunu {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+height: auto;  
+  padding: 20px;
+  background-color: rgb(186, 229, 186);
+ 
+}
+
+.woman {
+  flex: 1;
+  padding: 20px;
+  padding-left: 100px;
+}
+
+.image-woman{
+ padding-right: 100px;
+ 
+}
+.animated-image {
+ 
+  animation: woman 2s infinite alternate ease-in-out;
+}
+
+@keyframes woman {
+  0% {
+    transform: translateY(-20px); /* Di chuyển lên */
+  }
+ 
+  100% {
+    transform: translateY(20px); /* Quay lại vị trí ban đầu */
+  }
+}
+
+
+
+
+
+
+
+
 
 .gioithieu {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  
   background:transparent;
   margin-top: 0px;
 }
 
-.text-gioithieu p {
- padding: 30px;
- border-radius: 25px;
- 
- 
- background-color: #e9efec;
- margin: 20px 100px;
+.text-gioithieu1 p,
+.text-gioithieu2 p {
+  padding: 30px;
+  border-radius: 25px;
+  background-color: #66d49d;
+  margin: 20px 100px;
+  transition: transform 0.5s ease;
 }
 
-.text-gioithieu text-gioithieu1{
-  background-color: #333;
-  width: 100px;
-  height: 100px;
+/* Tạo vị trí ban đầu bên trái cho text-gioithieu1 */
+.text-gioithieu1 p {
+  transform: translateX(-100px);
 }
+
+/* Tạo vị trí ban đầu bên phải cho text-gioithieu2 */
+.text-gioithieu2 p {
+  transform: translateX(100px);
+}
+
+/* Khi hover vào .text-gioithieu1 p, di chuyển từ trái vào */
+.text-gioithieu1 p:hover {
+  transform: translateX(0);
+}
+
+/* Khi hover vào .text-gioithieu2 p, di chuyển từ phải vào */
+.text-gioithieu2 p:hover {
+  transform: translateX(0);
+}
+
 
 .image-gioithieu img {
   width: 250px; /* Adjust the size as needed */
@@ -98,28 +158,30 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
+ 
   gap: 10px;
 }
-.ne{
-  background-color: white;
-}
+
+
 .product-list {
   display: flex;
-  overflow: hidden;
-  position:relative;
-
-  width: 1000px; /* Đảm bảo chỉ có 4 sản phẩm hiển thị */
+  justify-content: start;
+  flex-wrap: wrap; /* Cho phép sản phẩm xuống hàng */
+  margin: 0;
+  position: relative;
+  padding-bottom: 20px;
+  gap: 20px; /* Khoảng cách giữa các sản phẩm */
 }
 
 .product-item {
   border: 1px solid #ddd;
   padding: 5px;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 350px;
-  height: 500px;
-  margin: 10px;
+  background-color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Thêm hiệu ứng chuyển động mượt */
+  width: 230px; /* Thiết lập chiều rộng cố định cho mỗi sản phẩm */
+  margin: 10px; /* Khoảng cách giữa các sản phẩm */
+  height: 350px;
 }
 
 .nav-button {
@@ -146,6 +208,7 @@ h2{
   margin-bottom: 20px; /* Khoảng cách dưới mô tả tổng quát */
 }
 
+
 .product-item p.product-price {
   font-size: 16px; /* Kích thước chữ cho giá sản phẩm */
   color: rgb(12, 95, 52); /* Màu chữ cho giá sản phẩm */
@@ -155,9 +218,10 @@ h2{
 }
 
 .product-item img {
-  width: 250px;
-  height: 350px;
+  width: 150px;
+  height: 200px;
   margin-bottom: 10px;
+  mix-blend-mode:darken;
 }
 
 h4 {
@@ -189,9 +253,7 @@ button:hover {
 
 .product-item:hover {
   transform: scale(1.05); /* Khi hover, sản phẩm sẽ phóng to */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Thêm bóng cho sản phẩm */
-  background-color: #a7c4b6;
-
+  box-shadow: 0px 4px 8px rgba(23, 222, 152, 0.2); /* Thêm bóng cho sản phẩm */
 }
 /* Dịch vụ */
 
@@ -199,9 +261,8 @@ button:hover {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  background-color: #229e6a;
   margin: 0 auto;
-  padding: 20px;
+  padding-top: 20px;
  
 }
 
@@ -214,6 +275,8 @@ button:hover {
   background-color: #eaeaea;
   border-radius: 8px;
   text-align: center;
+  position: relative;
+  cursor: pointer;
   transition: transform 0.2s, background-color 0.2s; /* Thêm hiệu ứng chuyển đổi */
 }
 
@@ -252,12 +315,8 @@ button:hover {
 }
 
 .floating-image-container {
-  position: absolute;
-  top: 120px;
-  left: 20px;
+
   display: flex;
-  align-items: center;
-  justify-content: center;
   animation: float 2s infinite alternate ease-in-out;
 }
 
@@ -288,7 +347,7 @@ button:hover {
     transform: scale(1);
   }
   100% {
-    transform: scale(1.2);
+    transform: scale(1.5);
   }
 }
 
@@ -296,7 +355,7 @@ button:hover {
 
 
 .footer {
-  background: linear-gradient(to bottom right, #229e6a, #23925b); /* Gradient từ trên trái đến dưới phải */
+  background-color: #23925b;
   color: #ffffff;
   
  
@@ -347,51 +406,3 @@ button:hover {
   margin-top: 20px;
 }
 
-
-.falling-leaves-container {
-  position: fixed;
-  overflow: hidden;
-  width: 100%;
-  height: 100vh; 
-}
-.leaf {
-  position: absolute;
-  color: #107c10; /* Màu xanh lá cây */
-  font-size: 24px;
-  opacity: 0.8;
-  animation: fall 5s linear infinite;
-}
-
-/* Keyframes cho hiệu ứng rơi */
-@keyframes fall {
-  0% {
-    transform: translateY(-100px) rotate(0deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(100vh) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-/* Điều chỉnh thời gian và vị trí của các lá */
-.leaf:nth-child(1) { left: 10%; animation-duration: 5s; }
-.leaf:nth-child(2) { left: 20%; animation-duration: 7s; }
-.leaf:nth-child(3) { left: 30%; animation-duration: 6s; }
-.leaf:nth-child(4) { left: 40%; animation-duration: 8s; }
-.leaf:nth-child(5) { left: 50%; animation-duration: 6.5s; }
-.leaf:nth-child(6) { left: 160%; animation-duration: 6s; }
-.leaf:nth-child(7) { left: 86%; animation-duration: 8s; }
-.leaf:nth-child(8) { left: 90%; animation-duration: 10.5s; }
-.anhkhuvuon{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw; /* Chiều rộng toàn màn hình */
-  height: 100vh; /* Chiều cao toàn màn hình */
-  overflow: hidden; /* Đảm bảo không hiển thị tràn */
-  z-index: -2; /* Đặt phía sau nội dung khác */
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Đảm bảo ảnh bao phủ toàn màn hình mà không bị méo */
-}

@@ -14,7 +14,7 @@ import Swal from 'sweetalert2';
   standalone: true,
   imports: [CommonModule, FormsModule, TreeTypeMenuComponent],
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  styleUrls: ['./product.component.css'],
 })
 export class ProductComponent implements OnInit {
   products: GetListProductSpResult[] = [];
@@ -26,8 +26,8 @@ export class ProductComponent implements OnInit {
   productId: number = 0; 
   product!: ProductResponse; 
   cartItems: any[] = JSON.parse(localStorage.getItem('cartItems') || '[]');
- 
   quantity: number = 1; // Khai báo số lượng
+  animateCart: boolean = false;  // Flag để kích hoạt hiệu ứng bay
 
   constructor(
     private router: Router,
@@ -92,18 +92,26 @@ export class ProductComponent implements OnInit {
       quantity: this.quantity,
       imageUrl: this.rootUrl + '/' + product.img
     };
-  
+
     const existingItem = this.cartItems.find(cartItem => cartItem.id === item.id);
     if (existingItem) {
-      existingItem.quantity += item.quantity; // Cập nhật số lượng nếu đã có
+      existingItem.quantity += item.quantity;
     } else {
-      this.cartItems.push(item); // Thêm mới nếu chưa có
+      this.cartItems.push(item);
     }
-  
+
     // Lưu giỏ hàng vào localStorage
     localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
-  
-    // Sử dụng SweetAlert2 để hiển thị thông báo
+
+    // Kích hoạt hiệu ứng bay vào giỏ
+    this.animateCart = true;
+
+    // Đặt lại flag sau 1 giây để hiệu ứng không ảnh hưởng đến các sản phẩm khác
+    setTimeout(() => {
+      this.animateCart = false;
+    }, 1000); // Thời gian này phải trùng với thời gian trong CSS (1s)
+
+    // Hiển thị thông báo thành công
     Swal.fire({
       title: 'Thành công!',
       text: 'Sản phẩm đã được thêm vào giỏ hàng!',
@@ -111,8 +119,6 @@ export class ProductComponent implements OnInit {
       confirmButtonText: 'OK'
     });
   }
-  
-  
 
 
   onSearch(): void {

@@ -1,11 +1,4 @@
-/* src/app/components/banner-slider/banner-slider.component.scss */
-.banner {
-  display: flex; /* Use flexbox for layout */
-  align-items: center; /* Center items vertically */
-  margin: 0;
- background-color: white;
 
-}
 
 .slide {
   position: relative; /* Required for absolute positioning of buttons and images */

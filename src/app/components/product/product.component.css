@@ -1,27 +1,35 @@
 .product-container {
   display: flex; /* Sử dụng Flexbox để bố trí */
-  background-color: #f9f9f9;
-  padding: 30px 0px;
+ background-color: white;
   width: 100%;
   height: auto;
   
+
 }
 
 app-tree-type-menu {
   padding-top: 0px;
+ 
   flex: 1; /* Chiếm 1 phần của không gian */
 }
 
 .product-content {
-  padding-left: 20px;
-  flex: 5; /* Chiếm 3 phần của không gian */
+ border:1px solid rgb(228, 203, 203);
+ margin-right: 40px;
+ background-color: #f9f9f9;
+  flex:5; /* Chiếm 3 phần của không gian */
+ 
+ 
 }
 
 .product-list {
   display: flex;
+  padding-left: 20px;
   justify-content: start;
   flex-wrap: wrap; /* Cho phép sản phẩm xuống hàng */
   margin: 0;
+  
+  position: relative;
   gap: 20px; /* Khoảng cách giữa các sản phẩm */
 }
 
@@ -29,10 +37,13 @@ app-tree-type-menu {
   border: 1px solid #ddd;
   padding: 5px;
   text-align: center;
+  background-color: white;
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Thêm hiệu ứng chuyển động mượt */
   width: 230px; /* Thiết lập chiều rộng cố định cho mỗi sản phẩm */
   margin: 10px; /* Khoảng cách giữa các sản phẩm */
-  height: 350px;
+  height: 330px;
+  cursor: pointer;
+  color: rgb(12, 95, 52); /* Màu chữ cho giá sản phẩm */
 }
 
 .description {
@@ -44,7 +55,7 @@ app-tree-type-menu {
 
 .product-item p.product-price {
   font-size: 16px; /* Kích thước chữ cho giá sản phẩm */
-  color: rgb(12, 95, 52); /* Màu chữ cho giá sản phẩm */
+ color:  rgb(12, 95, 52); /* Màu chữ cho giá sản phẩm */
   padding: 0px;    /* Không có khoảng cách bên trong */
   margin: 0;       /* Không có khoảng cách bên ngoài */
   text-align: center; /* Căn giữa cho giá sản phẩm */
@@ -83,15 +94,15 @@ button:hover {
 }
 
 .product-item:hover {
-  transform: scale(1.05); /* Khi hover, sản phẩm sẽ phóng to */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Thêm bóng cho sản phẩm */
-  background-color: #a7c4b6;
+  transform: scale(1.10); /* Khi hover, sản phẩm sẽ phóng to */
+  box-shadow: 0px 8px 20px rgba(23, 222, 152, 0.7); /* Thêm bóng cho sản phẩm */
 }
 
 .search-container {
   display: flex;
   position: relative;
-  margin-bottom: 20px; /* Khoảng cách giữa thanh tìm kiếm và danh sách sản phẩm */
+ 
+  padding: 20px; /* Khoảng cách giữa thanh tìm kiếm và danh sách sản phẩm */
   gap:5px
 }
 
@@ -130,9 +141,11 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  padding: 20px;
   flex-wrap: wrap; /* Cho phép phần tử trong pagination xuống hàng nếu cần */
   position: relative;
+  background-color: #f9f9f9;
+  padding-bottom: 10px;
 }
 
 .pagination button {
@@ -140,12 +153,16 @@ button:hover {
   margin: 0 5px;
   border: none;
   border-radius: 3px;
-  background-color: rgb(240, 244, 34);
-  color: rgb(97, 79, 15);
+  background-color: rgb(162, 164, 33);
+  color:white;
   cursor: pointer;
+}
+.pagination button:hover{
+  background-color: #ffcc00;
 }
 
 .pagination button:disabled {
   background-color: grey;
   cursor: not-allowed;
 }
+

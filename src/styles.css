@@ -4,3 +4,430 @@
     padding: 0;
     box-sizing: border-box; /* Đảm bảo chiều rộng và chiều cao bao gồm cả padding và border */
 }
+/* styles.scss */
+
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+  }
+  
+  body.dark-mode nav {
+    background-color: #333;
+  }
+  body.dark-mode .theme-toggle{
+    color: white;
+  }
+  
+
+  body.dark-mode li {
+    color: #fcfcfc;
+  }
+  body.dark-mode .right-menu a{
+    color: rgb(255, 255, 255) !important;
+  }
+  body.dark-mode .logocay::after {
+    background-color: white; /* Màu trắng phủ lên */
+    mix-blend-mode: lighten; /* Chế độ pha trộn để làm sáng logo */
+    z-index: 1; /* Đặt lớp phủ trên cùng */
+    pointer-events: none; /* Không cản trở thao tác */
+  }
+  
+  body.dark-mode .trang-chu {
+    background-color: #333333; /* Màu nền tối */
+    color: #0a5e45;
+    body.dark-mode .text-gioithieu1 p,
+.text-gioithieu2 p {
+  background-color: #958c8c;
+  color: white;
+}
+  }
+body.dark-mode .anhnguoiphunu {
+  background-color: #c1b1b1; /* Màu nền tối */
+}
+
+  body.dark-mode .footer{
+    background-color: grey;
+  }
+  /* Điều chỉnh màu cho trang giỏ hàng (cart) */
+  body.dark-mode .cart-container {
+    background-color: #222; /* Màu nền cho trang cart */
+    color: #e0e0e0;
+  }
+
+
+
+
+
+
+  /* Màu nền tối cho trang sản phẩm mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm */
+body.dark-mode .product-container {
+    background-color: #333333; /* Màu nền tối */
+    color: #ffffff; /* Màu chữ sáng */
+  }
+ 
+ 
+  body.dark-mode .product-content {
+    background-color: #444444; /* Màu nền tối cho menu */
+    border: 1px solid #666666; /* Màu viền tối */
+   
+  }
+  
+
+  body.dark-mode .product-item {
+    background-color: #f9f0f0; /* Màu nền tối cho danh sách sản phẩm */
+  }
+ 
+ 
+  
+  body.dark-mode .search-input:hover {
+    border-color: #fdfdfc; /* Màu đường viền khi hover */
+  }
+  
+  body.dark-mode .search-btn {
+    background-color:rgb(27, 117, 228);
+   
+  }
+  
+  .search-btn:hover {
+    background-color:  rgb(16, 65, 172);
+  }
+ 
+  body.dark-mode .product-item img {
+    mix-blend-mode: lighten; /* Làm sáng hình ảnh trong dark mode */
+  }
+  body.dark-mode .search-input {
+    background-color: #444444; /* Màu nền tối cho input tìm kiếm */
+    color: #ffffff; /* Màu chữ sáng */
+    border: 1px solid #666666; /* Màu viền tối */
+  }
+  
+  body.dark-mode .search-input::placeholder {
+    color: #bbbbbb; /* Màu chữ placeholder sáng */
+  }
+  
+  body.dark-mode .search-btn {
+    background-color: #899fb2; /* Nút tìm kiếm nền tối */
+    color: #ffffff; /* Màu chữ sáng */
+  }
+  body.dark-mode .pagination{
+    background-color: #444444; /* Màu nền tối */
+   
+  }
+
+  body.dark-mode .pagination button {
+    background-color: #555555; /* Màu nền tối cho nút phân trang */
+    color: #ffffff; /* Màu chữ sáng cho nút phân trang */
+  }
+  
+  body.dark-mode .pagination button:disabled {
+    background-color: #444444; /* Màu nút bị vô hiệu hóa trong dark mode */
+    color: #888888;
+  }
+  
+ body.dark-mode .product-list button {
+    background-color: #444444; 
+    color: white;
+  }
+  
+  body.dark-mode .product-list button:hover {
+    background-color:  #d2c1c1; 
+  }
+ body.dark-mode .product-item:hover {
+   
+    box-shadow: 0px 8px 20px #444444; 
+  }
+
+  
+
+
+
+ /* Màu nền tối cho thể loạiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii  iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii */
+  body.dark-mode .tree-type-menu{
+    background-color: #3f3737; 
+    border: 1px solid #666666; /* Màu viền tối */
+  }
+  body.dark-mode .tree-type-menu button{
+    background-color:#746868; 
+    color: white;
+    border: 1px solid #c9b8b8; /* Màu viền tối */
+
+  }
+  body.dark-mode .tree-type-menu button:hover{
+    background-color:#cda9a9; 
+    color: white;
+ 
+
+  }
+  body.dark-mode .tree-type-menu button.active{
+    background-color:#cda9a9; 
+    color: white;
+    
+
+  }
+
+
+
+
+  /* product detailllllllllllllllllllllllllllllllllllllllllllllllll */
+  
+  body.dark-mode .product-detail-container {
+    background-color: #2c2c2c; /* Nền tối cho container */
+    color: #e0e0e0; /* Chữ sáng */
+  }
+  
+  body.dark-mode .product-title,
+  body.dark-mode .product-description,
+  body.dark-mode .product-price {
+    color: #e0e0e0; /* Màu chữ sáng trong dark mode */
+  }
+  
+  body.dark-mode .product-quantity input {
+    background-color: #333; /* Nền tối cho input */
+    color: #fff; /* Chữ sáng cho input */
+  }
+  
+  body.dark-mode .add-to-cart-btn {
+    background-color: #0a5e45; /* Nền nút */
+  }
+  
+  body.dark-mode .review-list {
+    background: #333; /* Nền tối cho danh sách review */
+    color: #e0e0e0; /* Chữ sáng */
+  }
+  
+  body.dark-mode .review-item {
+    background: #444; /* Nền tối cho mỗi review */
+  }
+  
+  body.dark-mode .btn-danhgia {
+    background-color: #ff5733;
+    color: #fff;
+  }
+  
+  body.dark-mode .btn-danhgia:hover {
+    background-color: #ff6f61;
+  }
+  body.dark-mode label {
+   color: white;
+  }
+  body.dark-mode .form-control {
+    background-color: #333; /* Nền tối */
+    color: #fff; /* Chữ sáng */
+    border: 1px solid #555; /* Viền tối */
+  }
+  
+  body.dark-mode .custom-btn {
+    background-color: #28a745; /* Nút sáng khi chế độ tối */
+    color: white;
+  }
+  
+  body.dark-mode .custom-btn:hover {
+    background-color: #218838; /* Nút khi hover trong chế độ tối */
+  }
+
+  body.dark-mode .leaf {
+    display: none;  /* Ẩn icon lá khi ở chế độ tối */
+  }
+  
+  body.dark-mode .snowflake {
+    display: inline-block; /* Hiển thị icon tuyết khi ở chế độ tối */
+    font-size: 24px;
+    opacity: 0.8;
+    animation: fall 5s linear infinite;  /* Áp dụng hiệu ứng rơi tuyết */
+  }
+  
+  /* Keyframes cho hiệu ứng rơi */
+  @keyframes fall {
+    0% {
+      transform: translateY(-100px) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 1;
+    }
+  }
+  
+
+
+
+
+  /* Chế độ tối cho gioithieu-shop------------------------------------------------------------------------------------------ */
+body.dark-mode .gioithieu-shop-container {
+    background-color: #333333; /* Nền tối cho container */
+  h3{
+    color: white;
+  }
+ 
+  }
+  
+  body.dark-mode .gioithieu-shop-section {
+    background-color: #444444; /* Nền tối cho section */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Tăng độ bóng cho box-shadow */
+  }
+  
+  body.dark-mode .gioithieu-shop-image img {
+    border-radius: 10px;
+    object-fit: cover;
+    filter: brightness(0.8); /* Làm tối hình ảnh trong chế độ tối */
+  }
+  body.dark-mode .gioithieu-shop-container p{
+    color: white !important;
+  }
+  
+
+  
+ /* Chế độ tối cho toàn bộ container */
+body.dark-mode .contact-container {
+    background-color: #333333; /* Nền tối cho container */
+    color: #bbbbbb; /* Màu chữ sáng cho chế độ tối */
+  }
+  
+  /* Tiêu đề h2 */
+  body.dark-mode h2 {
+    color: #eeeeee; /* Màu chữ sáng cho tiêu đề */
+  }
+  
+  /* Chế độ tối cho phần nội dung liên hệ */
+  body.dark-mode .contact-content {
+    color: #bbbbbb; /* Màu chữ sáng */
+  }
+  
+  /* Chế độ tối cho phần cột bên trái (form) */
+  body.dark-mode .contact-form-container {
+    background-color: #555555; /* Nền tối cho form */
+    color: #bbbbbb; /* Màu chữ sáng */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Tăng độ bóng trong dark mode */
+  }
+  
+ 
+  /* Nền cho input và textarea trong dark mode */
+  body.dark-mode input, body.dark-mode textarea {
+    background-color: #666666; /* Nền tối cho input và textarea */
+    color: #eeeeee; /* Màu chữ sáng cho input và textarea */
+    border: 1px solid #888888; /* Màu viền tối */
+  }
+  
+  /* Nút gửi trong dark mode */
+  body.dark-mode button[type="submit"] {
+    background-color: #28a745; /* Nền nút sáng cho dark mode */
+    color: white;
+  }
+  
+  body.dark-mode button[type="submit"]:hover {
+    background-color: #1e7b34; /* Màu khi hover trên nút */
+  }
+  
+  /* Lỗi trong dark mode */
+  body.dark-mode .error {
+    color: #ffcccc; /* Màu đỏ sáng cho thông báo lỗi */
+  }
+  
+  /* Media Query cho màn hình nhỏ trong dark mode */
+  @media (max-width: 768px) {
+    body.dark-mode .contact-content {
+      background-color: #444444; /* Nền tối cho phần liên hệ */
+      color: #bbbbbb; /* Màu chữ sáng */
+    }
+  
+    body.dark-mode .contact-form-container, body.dark-mode .map-container {
+      max-width: 100%; /* Chiều rộng tối đa 100% */
+    }
+  }
+  
+
+
+  /* Chế độ tối cho toàn bộ container đơn hànggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg */
+body.dark-mode .order-container {
+    background-color: #333333; /* Nền tối cho container */
+    color: #bbbbbb; /* Màu chữ sáng cho chế độ tối */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Bóng sáng cho dark mode */
+  }
+  
+  /* Tiêu đề trong dark mode */
+  body.dark-mode h2 {
+    color: #eeeeee; /* Màu chữ sáng cho tiêu đề */
+  }
+  
+  /* Bảng đơn hàng trong dark mode */
+  
+
+  
+  body.dark-mode .order-table td {
+    background-color: #555555; /* Nền tối cho các ô dữ liệu */
+  }
+  
+  /* Ảnh sản phẩm trong dark mode */
+  body.dark-mode .product-image {
+    border-radius: 5px;
+    filter: brightness(0.7); /* Giảm độ sáng cho ảnh sản phẩm trong chế độ tối */
+  }
+  
+  /* Phần mã giảm giá */
+  body.dark-mode .discount-code {
+    margin-left: 850px;
+  }
+  
+  body.dark-mode .discount-code label {
+    color: #bbbbbb; /* Màu chữ sáng cho label */
+  }
+  
+  body.dark-mode .discount-code input {
+    background-color: #666666; /* Nền tối cho input */
+    color: #eeeeee; /* Màu chữ sáng cho input */
+    border: 2px solid #888888; /* Màu viền tối */
+  }
+  
+  body.dark-mode .discount-code input:focus {
+    border-color: #28a745; /* Đổi màu viền khi focus */
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+  }
+  
+  body.dark-mode .apply-button {
+    background-color: #28a745; /* Màu nền sáng cho nút áp dụng */
+    color: white;
+    border: 2px solid rgba(40, 167, 69, 0.5);
+  }
+  
+  body.dark-mode .apply-button:hover {
+    background-color: #1e7b34; /* Màu nền tối hơn khi hover */
+  }
+  
+  body.dark-mode .apply-button:active {
+    transform: scale(0.95); /* Hiệu ứng khi nhấn nút */
+  }
+  
+  /* Thông tin giao hàng trong dark mode */
+  body.dark-mode .shipping-info {
+    color: #bbbbbb; /* Màu chữ sáng cho thông tin giao hàng */
+  }
+  
+  body.dark-mode .shipping-info h3 {
+    color: #eeeeee; /* Màu chữ sáng cho tiêu đề giao hàng */
+  }
+  
+  body.dark-mode .shipping-info p {
+    color: #cccccc; /* Màu chữ sáng cho đoạn văn trong thông tin giao hàng */
+  }
+  
+  /* Tổng đơn hàng trong dark mode */
+  body.dark-mode .order-total h3 {
+    color: #eeeeee; /* Màu chữ sáng cho tổng đơn hàng */
+  }
+  
+  /* Nút gửi đơn hàng trong dark mode */
+  body.dark-mode .submit-button {
+    background-color: darkgreen; /* Nền tối cho nút gửi */
+    color: white;
+  }
+  
+  body.dark-mode .submit-button:hover {
+    background-color: #1e7b34; /* Màu nền tối hơn khi hover */
+  }
+  
+  /* Đảm bảo kích thước font phù hợp trong dark mode */
+  body.dark-mode .shipping-info {
+    font-size: 24px;
+  }
+  
