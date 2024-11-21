@@ -8,21 +8,18 @@ import { filter, map } from 'rxjs/operators';
 import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
-import { CreateOrderRequest } from '../../models/create-order-request';
 import { Int32ResultCustomModel } from '../../models/int-32-result-custom-model';
 
-export interface ApiOrderCreatePost$Plain$Params {
-      body?: CreateOrderRequest
+export interface ApiOrderGetTotalOrdersTotalOrdersGet$Json$Params {
 }
 
-export function apiOrderCreatePost$Plain(http: HttpClient, rootUrl: string, params?: ApiOrderCreatePost$Plain$Params, context?: HttpContext): Observable<StrictHttpResponse<Int32ResultCustomModel>> {
-  const rb = new RequestBuilder(rootUrl, apiOrderCreatePost$Plain.PATH, 'post');
+export function apiOrderGetTotalOrdersTotalOrdersGet$Json(http: HttpClient, rootUrl: string, params?: ApiOrderGetTotalOrdersTotalOrdersGet$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<Int32ResultCustomModel>> {
+  const rb = new RequestBuilder(rootUrl, apiOrderGetTotalOrdersTotalOrdersGet$Json.PATH, 'get');
   if (params) {
-    rb.body(params.body, 'application/*+json');
   }
 
   return http.request(
-    rb.build({ responseType: 'text', accept: 'text/plain', context })
+    rb.build({ responseType: 'json', accept: 'text/json', context })
   ).pipe(
     filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
     map((r: HttpResponse<any>) => {
@@ -31,4 +28,4 @@ export function apiOrderCreatePost$Plain(http: HttpClient, rootUrl: string, para
   );
 }
 
-apiOrderCreatePost$Plain.PATH = '/api/Order/Create';
+apiOrderGetTotalOrdersTotalOrdersGet$Json.PATH = '/api/Order/GetTotalOrders/total-orders';

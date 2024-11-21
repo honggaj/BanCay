@@ -17,6 +17,10 @@ import { OrderDetailComponent } from './components/order-detail/order-detail.com
 
 import { AppComponent } from './app.component';
 import { OtpVerificationComponent } from './components/checkEmail/checkEmail.components';
+import { PaymentComponent } from './components/payment/payment.component';
+import { PaymentSuccessComponent } from './components/payment-success/payment-success.component';
+import { PaymentCallbackComponent } from './components/payment-callback/payment-callback.component';
+import { PaymentFailComponent } from './components/payment-fail/payment-fail.component';
 
 
 
@@ -27,6 +31,11 @@ export const routes: Routes = [
   { path: 'gioithieu', component: IntroduceComponent },
   { path: 'sanpham', component: ProductComponent },
   { path: 'lienhe', component: ContactComponent },
+  { path: 'payment', component: PaymentComponent },
+  { path: 'payment-success', component: PaymentSuccessComponent },
+  { path: 'payment-callback', component: PaymentCallbackComponent },
+  { path: 'payment-failed', component: PaymentFailComponent },
+  
   {path:'giohang',component:CartComponent},
   {path:'dathang',component:OrderComponent},
   {path: 'lichsudonhang',component:OrderHistoryComponent},

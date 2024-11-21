@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { OrderService } from '../../api/services';
-import { CreateOrderRequest } from '../../api/models';
+import { CreateOrderRequest, Int32ResultCustomModel } from '../../api/models';
 import { BooleanResultCustomModel } from '../../api/models';
 import { FormsModule } from '@angular/forms';
 import { StrictHttpResponse } from '../../api/strict-http-response';
 import Swal from 'sweetalert2'; // Import SweetAlert2
 import { PromotionService } from '../../api/services/promotion.service'; // Import service tìm kiếm mã giảm giá
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-order',
@@ -27,7 +28,8 @@ export class OrderComponent implements OnInit {
   constructor(
     private router: Router,
     private orderService: OrderService,
-    private promotionService: PromotionService // Inject service tìm mã giảm giá
+    private promotionService: PromotionService, // Inject service tìm mã giảm giá
+    private http: HttpClient
   ) {}
 
   ngOnInit() {
@@ -44,6 +46,7 @@ export class OrderComponent implements OnInit {
     this.shippingInfo.phone = localStorage.getItem('phone') || '';
     this.shippingInfo.address = localStorage.getItem('address') || '';
   }
+ 
 
   checkPromotionCode() {
     if (!this.promotionCode) {
@@ -57,7 +60,7 @@ export class OrderComponent implements OnInit {
   
     console.log('Đang kiểm tra mã giảm giá:', this.promotionCode);
   
-    this.promotionService.apiPromotionCheckPromotionCodeGet(params).subscribe(
+    this.promotionService.apiPromotionCheckPromotionCodePost$Json$Response({body: { promotionCode: this.promotionCode, totalAmount: this.total }}).subscribe(
       (response : any) => {
         this.isPromotionValid = true;
         this.discountAmount = response.discountAmount || 0; // Cập nhật discountAmount từ phản hồi
@@ -123,7 +126,7 @@ export class OrderComponent implements OnInit {
         console.log('Đơn hàng gửi đi:', orderRequest);
     
         this.orderService.apiOrderCreatePost$Json$Response({ body: orderRequest }).subscribe(
-          (response: StrictHttpResponse<BooleanResultCustomModel>) => {
+          (response: StrictHttpResponse<Int32ResultCustomModel>) => {
             const responseBody = response.body;
             if (responseBody.success) {
               Swal.fire({
@@ -133,7 +136,11 @@ export class OrderComponent implements OnInit {
                 confirmButtonText: 'OK'
               }).then(() => {
                 localStorage.removeItem('cartItems'); // Xóa giỏ hàng
-                this.router.navigate(['/success']); // Chuyển đến trang thành công
+                // this.router.navigate(['/success']); // Chuyển đến trang thành công
+
+                this.router.navigate(['/payment'], {
+                  queryParams: { orderId : responseBody.data, totalAmount: this.total }
+                });
               });
             } else {
               Swal.fire({
